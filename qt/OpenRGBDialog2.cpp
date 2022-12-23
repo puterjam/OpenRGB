@@ -289,7 +289,11 @@ OpenRGBDialog2::OpenRGBDialog2(QWidget *parent) : QMainWindow(parent), ui(new Op
     /*-----------------------------------------------------*\
     | Set up tray icon menu                                 |
     \*-----------------------------------------------------*/
+    QFont menuFont;
+    menuFont.setPointSize(8);
+
     trayIconMenu = new QMenu( this );
+    trayIconMenu->setFont(menuFont);
 
     trayIcon = new QSystemTrayIcon(this);
 
@@ -300,8 +304,11 @@ OpenRGBDialog2::OpenRGBDialog2(QWidget *parent) : QMainWindow(parent), ui(new Op
     profileMenu = new QMenu(tr("Profiles"), this);
 
     trayIconMenu->addMenu(profileMenu);
+    profileMenu->setFont(menuFont);
 
     QMenu* quickColorsMenu = new QMenu(tr("Quick Colors"), this);
+
+    quickColorsMenu->setFont(menuFont);
 
     QAction* actionQuickRed = new QAction(tr("Red"), this);
     connect(actionQuickRed, SIGNAL(triggered()), this, SLOT(on_QuickRed()));
@@ -337,6 +344,8 @@ OpenRGBDialog2::OpenRGBDialog2(QWidget *parent) : QMainWindow(parent), ui(new Op
     actionLightsOff->setObjectName("ActionLightsOff");
     connect(actionLightsOff, SIGNAL(triggered()), this, SLOT(on_LightsOff()));
     trayIconMenu->addAction(actionLightsOff);
+
+    trayIconMenu->addSeparator();
 
     actionExit = new QAction(tr("Exit"), this );
     connect( actionExit, SIGNAL( triggered() ), this, SLOT( on_Exit() ));
@@ -433,6 +442,11 @@ OpenRGBDialog2::OpenRGBDialog2(QWidget *parent) : QMainWindow(parent), ui(new Op
     AddPluginsPage();
 
     /*-----------------------------------------------------*\
+    | Add the QMK OpenRGB Protocol settings page            |
+    \*-----------------------------------------------------*/
+    AddQMKORGBSettingsPage();
+
+    /*-----------------------------------------------------*\
     | Add the E1.31 settings page                           |
     \*-----------------------------------------------------*/
     AddE131SettingsPage();
@@ -446,11 +460,6 @@ OpenRGBDialog2::OpenRGBDialog2(QWidget *parent) : QMainWindow(parent), ui(new Op
     | Add the Serial settings page                          |
     \*-----------------------------------------------------*/
     AddSerialSettingsPage();
-
-    /*-----------------------------------------------------*\
-    | Add the QMK OpenRGB Protocol settings page            |
-    \*-----------------------------------------------------*/
-    AddQMKORGBSettingsPage();
 
     /*-----------------------------------------------------*\
     | Add the Philips Hue settings page                     |

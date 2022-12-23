@@ -6,7 +6,8 @@ Ui::TabLabel::TabLabel(QString icon, QString name, char* original, char* context
     ui(new Ui::TabLabelUi)
 {
     ui->setupUi(this);
-    ui->icon->setText("<img src=':/" + icon + "' height='16' width='16'  />");
+    //ui->icon->setText("<img src=':/" + icon + "' height='16' width='16'  />");
+    ui->icon->setPixmap(QPixmap(":/" + icon));
     ui->name->setText(name);
     label   = original;
     ctxt    = context;

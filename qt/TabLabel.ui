@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>222</width>
-    <height>16</height>
+    <width>229</width>
+    <height>20</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -47,6 +47,9 @@
    </item>
    <item>
     <widget class="QLabel" name="icon">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="minimumSize">
       <size>
        <width>16</width>
@@ -113,4 +116,3 @@
  <resources/>
  <connections/>
 </ui>
-

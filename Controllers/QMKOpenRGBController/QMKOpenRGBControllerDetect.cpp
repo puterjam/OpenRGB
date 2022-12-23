@@ -34,8 +34,8 @@
 /*-----------------------------------------------------*\
 | Usage and Usage Page                                  |
 \*-----------------------------------------------------*/
-#define QMK_USAGE_PAGE                          0xFF60
-#define QMK_USAGE                               0x61
+#define QMK_USAGE_PAGE                          0xFF59
+#define QMK_USAGE                               0x60
 
 unsigned int GetProtocolVersion(hid_device *dev)
 {
@@ -157,7 +157,7 @@ void RegisterQMKDetectors()
                 unsigned short usb_pid  = std::stoi(usb_pid_str, 0, 16);
                 unsigned short usb_vid  = std::stoi(usb_vid_str, 0, 16);
 
-                REGISTER_DYNAMIC_HID_DETECTOR_IPU(name, DetectQMKOpenRGBControllers, usb_vid, usb_pid, 1, QMK_USAGE_PAGE, QMK_USAGE);
+                REGISTER_DYNAMIC_HID_DETECTOR_IPU(name, DetectQMKOpenRGBControllers, usb_vid, usb_pid, 2, QMK_USAGE_PAGE, QMK_USAGE);
             }
         }
     }

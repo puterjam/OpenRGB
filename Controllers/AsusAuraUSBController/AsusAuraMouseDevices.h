@@ -41,6 +41,8 @@
 #define AURA_ROG_KERIS_WIRELESS_BT_PID              0x1962
 #define AURA_TUF_M3_PID                             0x1910
 #define AURA_TUF_M5_PID                             0x1898
+#define AURA_ROG_KERIS_AIMPOINT_WIRELESS_USB_PID    0x1a66
+#define AURA_ROG_KERIS_AIMPOINT_WIRELESS_2_4_PID    0x1a68
 
 enum
 {
@@ -472,6 +474,32 @@ static std::map<int,mouse_type> aura_mouse_devices =
             2,
             { AURA_MOUSE_ZONE_LOGO },
             { AURA_MOUSE_MODE_STATIC, AURA_MOUSE_MODE_BREATHING, AURA_MOUSE_MODE_SPECTRUM, AURA_MOUSE_MODE_REACTIVE }
+        }
+    },
+    {
+        AURA_ROG_KERIS_AIMPOINT_WIRELESS_USB_PID, // ROG Keris
+        {
+            0,
+            0,
+            0,
+            64,
+            true,
+            1, // might be the wrong protocol for version
+            { AURA_MOUSE_ZONE_LOGO },
+            { AURA_MOUSE_MODE_STATIC, AURA_MOUSE_MODE_BREATHING, AURA_MOUSE_MODE_SPECTRUM, AURA_MOUSE_MODE_NONE, AURA_MOUSE_MODE_REACTIVE, AURA_MOUSE_MODE_NONE, AURA_MOUSE_MODE_BATTERY }
+        }
+    },
+    {
+        AURA_ROG_KERIS_AIMPOINT_WIRELESS_2_4_PID, // ROG Keris
+        {
+            0,
+            0,
+            0,
+            64,
+            true,
+            1, // might be the wrong protocol for version
+            { AURA_MOUSE_ZONE_LOGO },
+            { AURA_MOUSE_MODE_STATIC, AURA_MOUSE_MODE_BREATHING, AURA_MOUSE_MODE_SPECTRUM, AURA_MOUSE_MODE_NONE, AURA_MOUSE_MODE_REACTIVE, AURA_MOUSE_MODE_NONE, AURA_MOUSE_MODE_BATTERY }
         }
     },
 };

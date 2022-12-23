@@ -41,7 +41,7 @@ TEMPLATE    = app
 #-----------------------------------------------------------------------------------------------#
 # Automatically generated build information                                                     #
 #-----------------------------------------------------------------------------------------------#
-win32:BUILDDATE = $$system(date /t)
+win32:BUILDDATE = $$system("echo %date:~0,10%")
 unix:BUILDDATE  = $$system(date -R -d "@${SOURCE_DATE_EPOCH:-$(date +%s)}")
 GIT_COMMIT_ID   = $$system(git log -n 1 --pretty=format:"%H")
 GIT_COMMIT_DATE = $$system(git log -n 1 --pretty=format:"%ci")
